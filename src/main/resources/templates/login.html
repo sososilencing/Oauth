@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/shunbian" method="post">
+   name: <input type="text" name="name" value="">
+   passowrd: <input type="password" name="password" value="">
+    <input type="hidden" id="redirect_uri" name="redirect_uri" value="123">
+    <input type="submit"  name="button" value="提交">
+</form>
+<script>
+    //   function GetAgrs() {
+    var  string=location.search;
+    var therequest=new Object();
+    if(string.indexOf("?")!=-1){
+        var str=string.substr(1);
+        var strs=str.split("&");
+        for(var i=0;i<strs.length;i++){
+            var who=strs[i].split("=");
+            therequest[i]=who[1];
+        }
+    }
+    var uri=therequest[0];
+    document.getElementById("redirect_uri").value=uri;
+    // }
+    /*      function loadXMLDoc() {
+              var request=new Object();
+              request=GetAgrs();
+              var uri=request[0];
+              alert(uri);
+              var xmlhttp;
+              if (window.XMLHttpRequest)
+              {// code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp=new XMLHttpRequest();
+              }
+              else
+              {// code for IE6, IE5
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange=function()
+              {
+                  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                  {
+                    //  document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                  }
+              }
+              xmlhttp.open("POST","shunbian",true);
+              xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xmlhttp.send("redirect_uri="+uri);
+      }*/
+</script>
+</body>
+</html>
